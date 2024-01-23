@@ -3,7 +3,7 @@ data "aws_ami" "latest-amazon-linux-image" {
   owners      = ["amazon"]
   filter {
     name   = "name"
-    values = ["Ubuntu Server 22.04 LTS (HVM), SSD Volume Type"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
   filter {
     name   = "virtualization-type"
@@ -20,6 +20,6 @@ resource "aws_instance" "myapp-server" {
   associate_public_ip_address = true
   user_data                   = file("jenkins-server-script.sh")
   tags = {
-    Name = "${var.env_prefix}-server"
+    Name = "${var.env_prefix}-jenkins-server"
   }
 }
