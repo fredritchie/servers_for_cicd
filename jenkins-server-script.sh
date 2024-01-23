@@ -52,12 +52,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo apt update
 
 #Install maven
-
-sudo wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-sudo tar -xvf apache-maven-3.6.3-bin.tar.gz
-sudo mv apache-maven-3.6.3 /opt/
-
-M2_HOME='/opt/apache-maven-3.6.3'
-PATH="$M2_HOME/bin:$PATH"
-export PATH
+sudo apt update
+sudo apt install maven -y
 mvn -version
+
+sudo chmod 666 /var/run/docker.sock
+
+sudo apt install awscli -y
